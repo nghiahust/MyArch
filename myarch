@@ -1,0 +1,66 @@
+# Base
+base
+base-devel
+linux
+linux-headers
+linux-firmware
+
+# Tools
+vim
+git
+xdg-utils
+xdg-user-dirs
+intel-ucode
+btrfs-progs
+dialog
+mtools
+dosfstools
+relfector
+ntfs-3g
+
+# Internet
+networkmanager
+network-manager-applet
+wpa_supplicant
+
+# Bluetooth
+bluez
+bluez-utils
+
+# Sound
+pipewire
+
+# WebRTC
+xdg-desktop-portal
+xdg-desktop-portal-gnome
+
+# Grub
+grub
+grub-btrfs
+os-prober
+efibootmgr
+
+# Gnome
+cheese
+eog
+evince
+gedit
+gnome-desktop
+gnome-clocks
+gnome-control-center
+gnome-keyring
+gnome-screenshot
+gnome-shell-extensions
+gnome-session
+gnome-shell
+gnome-terminal
+gnome-backgrounds
+gnome-software
+gnome-software-packagekit-plugin
+gvfs
+mutter
+nautilus
+xdg-user-dirs-gtk
+neofetch
+noto-fonts
+archlinux-appstream-data-pamac
