@@ -61,50 +61,55 @@
 	gnome-shell gnome-control-center eog evince file-roller gdm gnome-keyring gnome-shell-extensions chrome-gnome-shell nautilus gnome-console (AUR) gnome-text-editor (AUR)
 
 # Generate fstab
-genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
+	genfstab -U /mnt >> /mnt/etc/fstab
+	cat /mnt/etc/fstab
 
 # Chroot
-arch-chroot /mnt
+	arch-chroot /mnt
 
 # Time zone
-ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
-hwclock
+	ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+	hwclock
 
 # Localization
-vim /etc/locale.gen
-// Uncomment en_US.UTF-8 UTF-8
-locale-gen
-vim /etc/locale.conf
-// LANG=en_US.UTF-8
+	vim /etc/locale.gen
+	// Uncomment en_US.UTF-8 UTF-8
+	locale-gen
+	vim /etc/locale.conf
+	// LANG=en_US.UTF-8
 
 # Network configuration
-echo MyArch > /etc/hostname
-// Add entries
-127.0.0.1	localhost
-::1	localhost
-127.0.0.1	MyArch.localdomain	MyArch
+	echo MyArch > /etc/hostname
+	// Add entries
+	127.0.0.1	localhost
+	::1	localhost
+	127.0.0.1	MyArch.localdomain	MyArch
 
 # Enable services
-systemctl enable networkmanager
-systemctl enable bluetooth.service
-systemctl enable gdm
+	systemctl enable NetworkManager
+	systemctl enable bluetooth.service
+	systemctl enable gdm
 
 # Install YAY
-
+	pacman -S --needed git base-devel
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
 
 # mkinitcpio
-vim /etc/mkinitcpio.conf
-//Edit line 7:
-MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-mkinitcpio -p linux
+	vim /etc/mkinitcpio.conf
+	//Edit line 7:
+	MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+	mkinitcpio -p linux
 
 # Install grub
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Archlinux
-grub-mkconfig -o /boot/grub/grub.cfg
+	grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Archlinux
+	grub-mkconfig -o /boot/grub/grub.cfg
 
 # Root password
-passwd
+	passwd
+
+# Create user
 
 
 
